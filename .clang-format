@@ -1,0 +1,21 @@
+---
+Language:        Cpp
+BasedOnStyle:  LLVM
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortFunctionsOnASingleLine: Empty
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: Allman
+BinPackArguments: false
+BinPackParameters: false
+ColumnLimit: 80
+ContinuationIndentWidth: 2
+Cpp11BracedListStyle: false
+KeepEmptyLinesAtTheStartOfBlocks: false
+IndentWidth: 2
+
+PenaltyBreakBeforeFirstCallParameter: 500
+PenaltyBreakComment: 300
+PenaltyBreakFirstLessLess: 50
+PenaltyBreakString: 150
+PenaltyExcessCharacter: 1000
+PenaltyReturnTypeOnItsOwnLine: 150
