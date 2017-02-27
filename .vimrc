@@ -5,8 +5,8 @@ call vundle#begin()
 Plugin 'tpope/vim-dispatch'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'tomasr/molokai'
-Plugin 'tomtom/tcomment_vim'
 Plugin 'godlygeek/tabular'
 Plugin 'fishman/ctags'
 Plugin 'derekwyatt/vim-fswitch'
@@ -136,6 +136,12 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 "tagbar
 nmap <F5> :TagbarToggle<CR>
+
+"nerdcomment
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
 
 "Custom functions
 
