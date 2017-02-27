@@ -15,6 +15,7 @@ Plugin 'derekwyatt/vim-protodef'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'kana/vim-operator-user'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
 
@@ -132,6 +133,9 @@ autocmd FileType c,cpp,cc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,cc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 autocmd FileType c,cpp,cc map <buffer><Leader>x <Plug>(operator-clang-format)
 nmap <Leader>C :ClangFormatAutoToggle<CR>
+
+"tagbar
+nmap <F5> :TagbarToggle<CR>
 
 "Custom functions
 
