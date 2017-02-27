@@ -13,6 +13,8 @@ Plugin 'derekwyatt/vim-fswitch'
 Plugin 'bling/vim-airline'
 Plugin 'derekwyatt/vim-protodef'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'kana/vim-operator-user'
+Plugin 'rhysd/vim-clang-format'
 
 call vundle#end()
 
@@ -46,7 +48,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set list
-set listchars=tab:__,trail:•,extends:#,nbsp:.,eol:¬
+set listchars=tab:__,trail:*,extends:#,nbsp:.,eol:$
 set backspace=indent,eol,start
 " Toggle showing the invisible characters
 nmap <leader>inv :set list!<CR>
@@ -125,8 +127,11 @@ set encoding=utf-8
 set laststatus=2
 
 "clang-format
-map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
-imap <C-K> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
+map to <Leader>cf in C++ code
+autocmd FileType c,cpp,cc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,cc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp,cc map <buffer><Leader>x <Plug>(operator-clang-format)
+nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 "Custom functions
 
