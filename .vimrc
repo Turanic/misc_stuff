@@ -42,7 +42,6 @@ set mousehide
 let mapleader=","
 
 "Coding style
-match ErrorMsg '\s\+$\|\%>80v.\+'
 filetype plugin indent on "detect the file type
 set expandtab
 set tabstop=2
@@ -51,8 +50,6 @@ set shiftwidth=2
 set list
 set listchars=tab:__,trail:*,extends:#,nbsp:.,eol:$
 set backspace=indent,eol,start
-" Toggle showing the invisible characters
-nmap <leader>inv :set list!<CR>
 
 " Automatically read a file that has changed on disk
 set autoread
@@ -64,9 +61,7 @@ set hlsearch
 "Binding
 set pastetoggle=<F12> " F12 Set paste / no-paste
 nmap <silent> <C-N> :NERDTreeToggle<CR>
-nmap <silent> ,C++ :
 nmap <leader>ev :e $MYVIMRC<CR>
-
 
 "Swap files
 set noswapfile
@@ -122,6 +117,8 @@ hi Tag ctermfg=Green
 hi Delimiter ctermfg=Yellow
 hi SpecialChar ctermfg=Yellow
 
+hi ColorColumn ctermbg=DarkRed
+
 "airline
 scriptencoding utf-8
 set encoding=utf-8
@@ -145,6 +142,19 @@ let g:NERDTrimTrailingWhitespace = 1
 
 "Custom functions
 
+"Toggle column warning and invisible chars
+function! ColumnToggle()
+  let w:toggle = exists('w:toggle') ? !w:toggle : 0
+  if w:toggle
+    call matchdelete(w:matchId)
+  else
+    let w:matchId = matchadd('ColorColumn', '\%81v.', 100)
+  endif
+endfunction
+call ColumnToggle()
+nmap <leader>inv :set list! <bar> :call ColumnToggle() <CR>
+
+" Insert gates or pragma once on headers
 function! s:insert_gates()
   let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
   execute "normal! i#ifndef " . gatename . "_"
