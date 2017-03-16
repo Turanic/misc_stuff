@@ -48,8 +48,9 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set list
-set listchars=tab:__,trail:*,extends:#,nbsp:.,eol:$
+set listchars=tab:__,trail:*,extends:#,eol:$,space:.
 set backspace=indent,eol,start
+
 
 " Automatically read a file that has changed on disk
 set autoread
@@ -73,6 +74,7 @@ if version >= 703
   silent !mkdir -p ~/.vimtmp/undo
 endif
 
+set t_ut=
 set t_Co=256
 let g:rehash256 = 1
 colorscheme molokai
@@ -98,7 +100,7 @@ hi Repeat ctermfg=Green
 hi Label ctermfg=Green
 hi Operator ctermfg=LightGreen
 hi Keyword ctermfg=DarkGreen
-hi SpecialKey ctermfg=Green
+hi SpecialKey ctermfg=LightGreen
 hi Exception ctermfg=LightGreen
 
 hi Include ctermfg=DarkRed
@@ -118,6 +120,14 @@ hi Delimiter ctermfg=Yellow
 hi SpecialChar ctermfg=Yellow
 
 hi ColorColumn ctermbg=DarkRed
+
+hi LeadingSpace ctermfg=237
+hi TrailingSpace ctermfg=Red
+hi CenterSpace ctermfg=234
+
+call matchadd('CenterSpace', '\S\zs\s\+')
+call matchadd('TrailingSpace', ' \+$')
+call matchadd('LeadingSpace', '^ \+')
 
 "airline
 scriptencoding utf-8
