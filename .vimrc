@@ -126,9 +126,9 @@ hi LeadingSpace ctermfg=237
 hi TrailingSpace ctermfg=Red
 hi CenterSpace ctermfg=234
 
-call matchadd('CenterSpace', '\S\zs\s\+')
-call matchadd('TrailingSpace', ' \+$')
-call matchadd('LeadingSpace', '^ \+')
+autocmd VimEnter,WinEnter * call matchadd('CenterSpace', '\S\zs\s\+')
+autocmd VimEnter,WinEnter * call matchadd('TrailingSpace', ' \+$')
+autocmd VimEnter,WinEnter * call matchadd('LeadingSpace', '^ \+')
 
 "airline
 scriptencoding utf-8
