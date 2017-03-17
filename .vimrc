@@ -16,6 +16,7 @@ Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'kana/vim-operator-user'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'majutsushi/tagbar'
+Plugin 'zyedidia/vim-snake'
 
 call vundle#end()
 
@@ -149,6 +150,11 @@ let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
+
+"Snake :D
+let g:snake_row = 50
+let g:snake_cols = 50
+let g:snake_update = 50
 
 "Custom functions
 
