@@ -2,30 +2,41 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'tpope/vim-dispatch'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tomasr/molokai'
-Plugin 'godlygeek/tabular'
-Plugin 'fishman/ctags'
-Plugin 'derekwyatt/vim-fswitch'
 Plugin 'bling/vim-airline'
-Plugin 'derekwyatt/vim-protodef'
-Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'fishman/ctags'
+Plugin 'godlygeek/tabular'
 Plugin 'kana/vim-operator-user'
-Plugin 'rhysd/vim-clang-format'
 Plugin 'majutsushi/tagbar'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-dispatch'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'zyedidia/vim-snake'
 
 call vundle#end()
 
-"C++ synthax
+"C++ synthaxi
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_cpp_check_header = 1
-let g:syntastic_c_auto_refresh_includes = 1
-let g:syntastic_cpp_compiler = "gcc"
-let g:syntastic_cpp_compiler_options = "-std=c++14 -Wall -Wextra -pedantic"
+let g:syntastic_cpp_auto_refresh_includes = 1
+let g:syntastic_cpp_compiler = "clang++"
+let g:syntastic_cpp_compiler_options = "-std=c++14
+      \ -Wall -Wextra -pedantic -Weffc++
+      \ -Wno-pragma-once-outside-header
+      \ -Wconversion -Wsign-conversion -Wswitch-enum
+      \ -Wextra-semi -Wmissing-variable-declarations
+      \ -Wunreachable-code -Wunreachable-code-return
+      \ -I../ -I ../.."
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 set cinoptions=(0,u0,U0,t0,g0,N-s
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
